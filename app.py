@@ -17,8 +17,8 @@ class app(base_app):
     """ template demo app """
 
     title = "Unsupervised Smooth Contour Detection in Arcs and Segments Decomposition: Online Demonstration"
-    xlink_article = 'http://www.ipol.im/'
-    xlink_src = 'http://www.ipol.im/pub/pre/67/gjknd_1.1.tgz'
+    xlink_article = 'https://www.ipol.im/'
+    xlink_src = 'https://www.ipol.im/pub/pre/67/gjknd_1.1.tgz'
     dgtal_src = 'https://github.com/kerautret/DGtal.git'
     demo_src_filename  = 'gjknd_1.1.tgz'
     demo_src_dir = 'SmoothContourArcSeg_IPOLDemo'
