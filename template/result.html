@@ -1,0 +1,94 @@
+<%include file="header.html" />
+
+<p> The main algorithm was applied with the following parameters:
+<ul>
+<li>  mono-width value of tangent cover <font color="blue"><i>width</i></font>: ${app.cfg['param']['monowidth']}  </li>
+<li>  threshold of admissible angle <font color="blue"><i>alphamax</i></font>: ${app.cfg['param']['alphamax']}  </li>
+<li>  thickness of MBS for collinear test <font color="blue"><i>thickness</i></font>: ${app.cfg['param']['thicknessts']}  </li>
+<li>  ISSE tolerence approximated between segments and arc <font color="blue"><i>issetol</i></font>: ${app.cfg['param']['issetol']}  </li>
+<li>  minimal number of points on a circle <font color="blue"><i>nbpointcircle</i></font>: ${app.cfg['param']['nbpointcircle']}  </li>
+</ul>
+</p>
+
+
+
+
+<BR>
+<BR>
+<form action="${app.base_url}" method="get">
+  <div class="action">
+    Restart this algorithm with new data.
+    <input type="submit" value="new input" />
+  </div>
+</form>
+
+<form action="${app.base_url + 'params'}" method="get">
+  <div class="action">
+    Restart this algorithm with new parameters.
+    <input type="hidden" name="key" value="${app.key}">
+    <input type="hidden" name="newrun" value="1">
+    <input type="submit" value="new parameters" />
+  </div>
+</form>
+
+<hr />
+
+<h2>Result</h2>
+
+<p>You can download the resulting smooth contour in  <a href="${app.work_url+'outputOutPts.svg'}">svg</a> format, or download the  <a href="${app.work_url+'inputPolygon.sdp'}">input </a> with the resulting decomposition in <a href="${app.work_url+'outputOnlyArcSeg.svg'}">svg</a>  format </p>
+
+
+<div class="gallery" style="height:${height}px">
+  <ul class="index">
+    <li>
+      <a href="${app.work_url+'input_0.png'}">input
+	<span>
+	  <img height="${height}" src="${app.work_url + 'input_0.png'}" alt="input" />
+	</span>
+      </a>
+    </li>
+    <li>
+      <a href="${app.work_url+'OutPts.svg'}">smooth contours
+	<span>
+	  <img  height="${height}" src="${app.work_url + 'outputOutPts.png'}" alt="output smooth contour" />
+	</span>
+      </a>
+    </li>
+    <li>
+      <a href="${app.work_url+'DP.svg'}">dominant points
+	<span>
+	  <img  height="${height}" src="${app.work_url + 'outputDP.png'}" alt="output dominant points" />
+	</span>
+      </a>
+    </li>
+    <li>
+      <a href="${app.work_url+'OnlyArcSeg.svg'}">decomposition
+	<span>
+	  <img  height="${height}" src="${app.work_url + 'outputDecomposition.png'}" alt="output decomposition" />
+	</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+
+<h2>
+  <a class="toggle" href="#commands" onclick="toggle('commands');">
+    Additional Info
+  </a>
+</h2>
+<div id="commands" style="display:none">
+<p>
+The algorithm ran with the following commands:
+<pre class="stdio"> ${app.list_commands} </pre>
+</p>
+</div>
+
+
+
+
+<hr />
+<%include file="archive_info.html" />
+
+<%include file="footer.html" />

@@ -1,0 +1,112 @@
+<%include file="header-jquery.html" />
+<script type="text/javascript">
+<%include file="js/createlinkedslider.js" />
+</script>
+
+<form action="${app.base_url + 'wait'}" method="get">
+    <input type="hidden" name="key" value="${app.key}">
+  <div class="action">
+    <ul>
+      <li> Set the algorithm parameters:
+          <ul>
+          	<li>
+                    <!-- code for slider -->
+                    <div style="float:left;padding-right:25px">
+                    <label for="monowidth">mono-width tangent cover based on maximum blurred segment <font color=blue><i>width</i></font>:</label>
+                     <input type="text" style="font-family:monospace;text-align:right"
+                        size="4" id="monowidth" name="monowidth" value="1.0" />
+                    </div>
+                    <div id="monowidth_slider" name="monowidth_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+                    <script type="text/javascript">
+                    // Turn DIV slider into a slider linked to scale
+                    $(document).ready(function() {
+                          createLinkedSlider('#monowidth', '#monowidth_slider', 0.5, 10, 0.5);
+                    });
+                    </script>
+                    <div style="clear:both"> </div>
+                    <!-- end of code for slider -->
+            </li>
+            <li>
+                    <!-- code for slider -->
+                    <div style="float:left;padding-right:25px">
+                    <label for="alphamax">threshold of admissible angle in the tangent space <font color=blue><i>alphamax</i></font>:</label>
+                     <input type="text" style="font-family:monospace;text-align:right"
+                        size="4" id="alphamax" name="alphamax" value="0.78" />
+                    </div>
+                    <div id="alphamax_slider" name="alphamax_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+                    <script type="text/javascript">
+                    // Turn DIV slider into a slider linked to scale
+                    $(document).ready(function() {
+                          createLinkedSlider('#alphamax', '#alphamax_slider', 0.0, 6.28, 0.1);
+                    });
+                    </script>
+                    <div style="clear:both"> </div>
+                    <!-- end of code for slider -->
+            </li>
+            <li>
+                 <!-- code for slider -->
+                 <div style="float:left;padding-right:25px">
+                 <label for="thicknessts">width of collinear test in the tangent space <font color=blue><i>thickness</i></font>:</label>
+                  <input type="text" style="font-family:monospace;text-align:right"
+                     size="4" id="thicknessts" name="thicknessts" value="0.2" />
+                 </div>
+                 <div id="thicknessts_slider" name="thicknessts_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+                 <script type="text/javascript">
+                 // Turn DIV slider into a slider linked to scale
+                 $(document).ready(function() {
+                       createLinkedSlider('#thicknessts', '#thicknessts_slider', 0.01, 1.0, 0.01);
+                 });
+                 </script>
+                 <div style="clear:both"> </div>
+                 <!-- end of code for slider -->
+            </li>
+            <li>
+                 <!-- code for slider -->
+                 <div style="float:left;padding-right:25px">
+                 <label for="issetol"> ISSE tolerence approximated between segments and arc <font color=blue><i>issetol</i></font>:</label>
+                  <input type="text" style="font-family:monospace;text-align:right"
+                     size="4" id="issetol" name="issetol" value="4.0" />
+                 </div>
+                 <div id="issetol_slider" name="issetol_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+                 <script type="text/javascript">
+                 // Turn DIV slider into a slider linked to scale
+                 $(document).ready(function() {
+                       createLinkedSlider('#issetol', '#issetol_slider', 0.0, 20.0, 0.1);
+                 });
+                 </script>
+                 <div style="clear:both"> </div>
+                 <!-- end of code for slider -->
+            </li>
+            <li>
+                 <!-- code for slider -->
+                 <div style="float:left;padding-right:25px">
+                 <label for="nbpointcircle"> minimal number of points on a circle <font color=blue><i>nbpointcircle</i></font>:</label>
+                  <input type="text" style="font-family:monospace;text-align:right"
+                     size="4" id="nbpointcircle" name="nbpointcircle" value="3" />
+                 </div>
+                 <div id="nbpointcircle_slider" name="nbpointcircle_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+                 <script type="text/javascript">
+                 // Turn DIV slider into a slider linked to scale
+                 $(document).ready(function() {
+                       createLinkedSlider('#nbpointcircle', '#nbpointcircle_slider', 3, 10, 1);
+                 });
+                 </script>
+                 <div style="clear:both"> </div>
+                 <!-- end of code for slider -->
+            </li>
+          </ul>
+    <br>
+    <input type="submit" value="run" />
+
+    </ul>   
+  </div>
+</form>
+
+
+<hr />
+
+<div>
+  <img src="${app.work_url + 'input_0.png'}" alt="" />
+</div>
+
+<%include file="footer.html" />
